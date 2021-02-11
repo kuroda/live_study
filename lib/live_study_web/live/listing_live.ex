@@ -2,7 +2,7 @@ defmodule LiveStudyWeb.ListingLive do
   use LiveStudyWeb, :live_view
   require Logger, warn: false
 
-  def render(assigns), do: LiveStudyWeb.ListingLiveView.render("index.html", assigns)
+  def render(assigns), do: LiveStudyWeb.ListingLiveView.render(assigns.template, assigns)
 
   @impl true
   def mount(_params, _session, socket) do
@@ -12,6 +12,15 @@ defmodule LiveStudyWeb.ListingLive do
     ]
 
     {:ok, assign(socket, users: users)}
+  end
+
+  @impl true
+  def handle_params(_params, _uri, socket) when socket.assigns.live_action == :index do
+    {:noreply, assign(socket, template: "index.html")}
+  end
+
+  def handle_params(_params, _uri, socket) when socket.assigns.live_action == :list do
+    {:noreply, assign(socket, template: "list.html")}
   end
 
   @impl true

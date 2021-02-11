@@ -17,9 +17,9 @@ defmodule LiveStudyWeb.Router do
   scope "/", LiveStudyWeb do
     pipe_through :browser
 
-    live "/", PageLive, :index
     live "/study", StudyLive, :show
-    live "/list", ListingLive, :index
+    live "/", ListingLive, :index
+    live "/list", ListingLive, :list
   end
 
   # Other scopes may use custom stacks.

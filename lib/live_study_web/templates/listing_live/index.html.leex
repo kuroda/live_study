@@ -1,5 +1,10 @@
 <ol>
   <%= for user <- @users do %>
-    <%= render "_user.html", user: user %>
+    <li>
+      <b><%= user.name %></b>
+      <button phx-click="toggle" phx-value-id="<%= user.id %>">
+        <%= if user.checked, do: "Yes", else: "No" %>
+      </button>
+    </li>
   <% end%>
 </ol>
