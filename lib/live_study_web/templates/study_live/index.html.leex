@@ -6,4 +6,6 @@
 <div>
   <button phx-click="toggle">A/B</button>
 </div>
-<%= render "_partial.html", assigns %>
+<% k = :random.uniform(100) %>
+<%= render "_partial.html", %{a: @a, b: @b, k: k} %>
+<%= render "_partial.html", Map.merge(assigns, %{k: k}) %>

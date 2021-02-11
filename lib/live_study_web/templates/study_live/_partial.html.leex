@@ -1,0 +1,9 @@
+<div>
+  <%= if @k > 50 do%>
+    a: <%= @a %>!
+  <% else %>
+    a: <%= @a %>
+  <% end %>
+  (<%= as_is(@k) %>)
+  <%= :random.uniform(100) %>
+</div>
