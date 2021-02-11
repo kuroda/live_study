@@ -4,7 +4,11 @@ defmodule LiveStudyWeb.StudyLive do
   def render(assigns), do: LiveStudyWeb.StudyLiveView.render("index.html", assigns)
 
   @impl true
-  def mount(_params, _session, socket) do
+  def mount(_params, _session, socket) when socket.assigns.live_action == :show do
+    {:ok, assign(socket, a: "A", b: %{x: 1})}
+  end
+
+  def mount(_params, _session, socket) when socket.assigns.live_action == :list do
     {:ok, assign(socket, a: "A", b: %{x: 1})}
   end
 

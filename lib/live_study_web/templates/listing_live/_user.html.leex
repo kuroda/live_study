@@ -1,0 +1,6 @@
+<li>
+  <b><%= @user.name %></b>
+  <button phx-click="toggle" phx-value-id="<%= @user.id %>">
+    <%= if @user.checked, do: "Yes", else: "No" %>
+  </button>
+</li>
