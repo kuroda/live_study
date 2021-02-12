@@ -20,6 +20,7 @@ defmodule LiveStudyWeb.Router do
     live "/study", StudyLive, :show
     live "/", ListingLive, :index
     live "/list", ListingLive, :list
+    live "/components", ListingLive, :components
   end
 
   # Other scopes may use custom stacks.

@@ -7,8 +7,11 @@ defmodule LiveStudyWeb.ListingLive do
   @impl true
   def mount(_params, _session, socket) do
     users = [
-      %{id: "1", name: "Alice", checked: false},
-      %{id: "2", name: "Bob", checked: false}
+      %{id: "100", name: "Alice", checked: false},
+      %{id: "101", name: "Bob", checked: false},
+      %{id: "102", name: "Carol", checked: false},
+      %{id: "103", name: "David", checked: false},
+      %{id: "104", name: "Eve", checked: false},
     ]
 
     {:ok, assign(socket, users: users)}
@@ -21,6 +24,10 @@ defmodule LiveStudyWeb.ListingLive do
 
   def handle_params(_params, _uri, socket) when socket.assigns.live_action == :list do
     {:noreply, assign(socket, template: "list.html")}
+  end
+
+  def handle_params(_params, _uri, socket) when socket.assigns.live_action == :components do
+    {:noreply, assign(socket, template: "components.html")}
   end
 
   @impl true

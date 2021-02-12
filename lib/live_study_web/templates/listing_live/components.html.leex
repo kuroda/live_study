@@ -1,0 +1,6 @@
+<ol>
+  <%= for user <- @users do %>
+    <%#= live_component @socket, LiveStudyWeb.UserComponent, user: user %>
+    <%= live_component @socket, LiveStudyWeb.UserComponent, id: user.id, user: user %>
+  <% end%>
+</ol>
